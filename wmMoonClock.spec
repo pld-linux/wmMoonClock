@@ -12,11 +12,10 @@ Icon: 		wmMoonClock.gif
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 wmMoonClock displays the current phase of the moon.  
