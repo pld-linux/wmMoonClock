@@ -45,4 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
-#%{_applnkdir}/DockApplets/wmMoonClock.desktop
+#%%{_applnkdir}/DockApplets/wmMoonClock.desktop
