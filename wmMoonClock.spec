@@ -29,7 +29,7 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 %build
 make -C wmMoonClock clean
 make -C wmMoonClock \
-	COPTS="$RPM_OPT_FLAGS -Wall"
+	COPTS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
 
 %install
 rm -rf $RPM_BUILD_ROOT
