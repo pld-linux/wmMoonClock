@@ -6,10 +6,9 @@ Release:	2
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:	GPL
-Source0:	%{name}-%{version}.tar.gz
+Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmMoonClock.wmconfig
 Icon: 		wmMoonClock.gif
-URL:		ftp://leadbelly.lanl.gov/pub/mgh/
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
