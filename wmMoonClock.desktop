@@ -6,4 +6,6 @@ Exec=wmMoonClock
 Terminal=false
 Type=Application
 Encoding=UTF-8
+NotShowIn=GNOME;KDE;
+Categories=X-Docklet;Utility;Clock;
 # vi: encoding=utf-8
