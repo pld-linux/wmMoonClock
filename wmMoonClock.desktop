@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wmMoonClock
+Name=WmMoonClock
 Comment=Moon phases
 Comment[pl]=Fazy księżyca
 Exec=wmMoonClock
