@@ -24,7 +24,7 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %build
 make -C wmMoonClock clean
-make -C wmMoonClock CFLAGS="$RPM_OPT_FLAGS -Wall"
+make -C wmMoonClock COPTS="$RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
