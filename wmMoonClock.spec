@@ -11,6 +11,7 @@ Source1:	wmMoonClock.wmconfig
 Patch0:		wmMoonClock-man.patch
 Icon: 		wmMoonClock.gif
 BuildPrereq:	XFree86-devel
+BuildPrereq:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
