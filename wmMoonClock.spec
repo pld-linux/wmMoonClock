@@ -8,6 +8,7 @@ Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:	GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmMoonClock.wmconfig
+Patch0:		wmMoonClock-man.patch
 Icon: 		wmMoonClock.gif
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -21,6 +22,7 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %prep
 %setup -q 
+%patch0 -p1
 
 %build
 make -C wmMoonClock clean
@@ -47,10 +49,14 @@ gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmMoonClock.1
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
-* Mon Mar 23 1999 Piotr Czerwiñski <pius@pld.org.pl>
+* Fri Mar 26 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.1-2]
-- removed binary files from sources,
-- typos in man page corrected,
+- added wmMoonClock-man.patch,
+- added make clean before make by Artur Frysiak <wiget@pld.org.pl>,
+- fixed passing $RPM_OPT_FLAGS by Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>,
+- minor changes.
+
+* Mon Mar 23 1999 Piotr Czerwiñski <pius@pld.org.pl>
 - changed Group to X11/Window Managers/Tools,
 - added Buildroot,
 - added -q %setup parameter,
