@@ -10,8 +10,8 @@ Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
 Source1:	wmMoonClock.desktop
 Icon: 		wmMoonClock.gif
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
-BuildPrereq:	XFree86-devel
-BuildPrereq:	xpm-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
