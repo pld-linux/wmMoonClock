@@ -16,6 +16,7 @@ BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define 	_prefix		/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 wmMoonClock displays the current phase of the moon.  
@@ -36,12 +37,12 @@ make -C Src \
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-        $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
+        $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
@@ -53,4 +54,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
 
-/usr/X11R6/share/applnk/DockApplets/wmMoonClock.desktop
+%{_applnkdir}/DockApplets/wmMoonClock.desktop
