@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
+# Source0-md5:	c85bc974e70c867d556805505d3be48c
 Source1:	%{name}.desktop
 Icon:		wmMoonClock.gif
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
