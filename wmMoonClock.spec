@@ -14,7 +14,7 @@ BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define _prefix         /usr/X11R6
+%define _prefix	/usr/X11R6
 
 %description
 wmMoonClock displays the current phase of the moon.  
@@ -59,33 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.1-4]
-- added more rpm macros,
-- package is now FHS 2.0 compliant.
-
-* Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.1-3]
-- added BuildPrereq: XFree86-devel,
-- recompiled on rpm 3,
-- cosmetics.
-
-* Fri Mar 26 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.1-2]
-- added wmMoonClock-man.patch,
-- added make clean before make by Artur Frysiak <wiget@pld.org.pl>,
-- fixed passing $RPM_OPT_FLAGS by Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>,
-- minor changes.
-
-* Mon Mar 23 1999 Piotr Czerwiñski <pius@pld.org.pl>
-- changed Group to X11/Window Managers/Tools,
-- added Buildroot,
-- added -q %setup parameter,
-- added using $RPM_OPT_FLAGS during compile,
-- fixed %build and %install,
-- added gzipping man pages,
-- added full %defattr description,
-- changes in %files,
-- moved %changelog at the end of spec,
-- major changes.
- 
-* Thu Dec 31 1998 Yeechang Lee <ylee@columbia.edu>
-- Added wmconfig file.
+- package is FHS 2.0 compliant,
+- based on spec file written by Yeechang Lee <ylee@columbia.edu>,
+  rewritten for PLD use by me, Artur Frysiak <wiget@pld.org.pl>
+  and Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>.
