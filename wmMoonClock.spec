@@ -1,14 +1,13 @@
 Name:		wmMoonClock
 Summary:	Moon phases info for Window Maker/AfterStep
 Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
-Version:	1.1
-Release:	4
+Version:	1.26
+Release:	1
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:	GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmMoonClock.wmconfig
-Patch0:		wmMoonClock-man.patch
 Icon: 		wmMoonClock.gif
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
@@ -26,12 +25,10 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %prep
 %setup -q 
-%patch0 -p1
 
 %build
-make -C %{name} clean
-make -C %{name} \
-	COPTS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
+make -C Src \
+	CFLAGS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -39,8 +36,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
         $RPM_BUILD_ROOT/etc/X11/wmconfig
 
-install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
-install %{name}/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
+install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
 
@@ -57,6 +54,12 @@ rm -rf $RPM_BUILD_ROOT
 /etc/X11/wmconfig/%{name}
 
 %changelog
+* Mon May 24 1999 Piotr Czerwiñski <pius@pld.org.pl> 
+  [1.26-1]
+- updated to 1.26,
+- removed wmMoonClock-man.patch,
+- some cleanups.
+
 * Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.1-4]
 - package is FHS 2.0 compliant,
