@@ -5,4 +5,5 @@ Comment[pl]=Fazy księżyca
 Exec=wmMoonClock
 Terminal=0
 Type=Application
+Encoding=UTF-8
 # vi: encoding=utf-8
