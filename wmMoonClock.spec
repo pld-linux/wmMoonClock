@@ -54,17 +54,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 /etc/X11/applnk/DockApplets/wmMoonClock.desktop
-
-%changelog
-* Mon May 24 1999 Piotr Czerwiñski <pius@pld.org.pl> 
-  [1.26-1]
-- updated to 1.26,
-- removed wmMoonClock-man.patch,
-- some cleanups.
-
-* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.1-4]
-- package is FHS 2.0 compliant,
-- based on spec file written by Yeechang Lee <ylee@columbia.edu>,
-  rewritten for PLD use by me, Artur Frysiak <wiget@pld.org.pl>
-  and Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>.
