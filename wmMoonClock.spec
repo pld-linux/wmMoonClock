@@ -2,13 +2,14 @@ Name:		wmMoonClock
 Summary:	Moon phases info for Window Maker/AfterStep
 Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
 Version:	1.1
-Release:	3
+Release:	4
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:	GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmMoonClock.wmconfig
 Patch0:		wmMoonClock-man.patch
+Patch1:		wmMoonClock-fhs.patch
 Icon: 		wmMoonClock.gif
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
@@ -25,6 +26,7 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 %prep
 %setup -q 
 %patch0 -p1
+%patch1 -p0
 
 %build
 make -C wmMoonClock clean
@@ -34,17 +36,17 @@ make -C wmMoonClock \
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/{bin,man/man1}}
-make -C wmMoonClock install DESTDIR=$RPM_BUILD_ROOT/usr/X11R6/
+install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/{bin,share/man/man1}}
+make -C wmMoonClock install DESTDIR=$RPM_BUILD_ROOT/usr/X11R6
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/wmMoonClock
 
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmMoonClock.1
+gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/share/man/man1/wmMoonClock.1
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/X11R6/bin/wmMoonClock
-/usr/X11R6/man/man1/wmMoonClock.1.gz
+/usr/X11R6/share/man/man1/wmMoonClock.1.gz
 
 /etc/X11/wmconfig/wmMoonClock
 
@@ -52,6 +54,11 @@ gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmMoonClock.1
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Wed May 12 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [1.1-4]
+- added wmMoonClock-fhs.patch,
+- package is now FHS 2.0 compliant.
+
 * Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.1-3]
 - added BuildPrereq: XFree86-devel,
