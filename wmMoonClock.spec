@@ -1,8 +1,8 @@
 Name:		wmMoonClock
 Summary:	Moon phases info for Window Maker/AfterStep
 Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
-Version:	1.26
-Release:	2
+Version:	1.27
+Release:	1
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:	GPL
