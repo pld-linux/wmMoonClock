@@ -43,15 +43,15 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/wmMoonClock
 
 gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/share/man/man1/wmMoonClock.1
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/X11R6/bin/wmMoonClock
 /usr/X11R6/share/man/man1/wmMoonClock.1.gz
 
 /etc/X11/wmconfig/wmMoonClock
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed May 12 1999 Piotr Czerwiñski <pius@pld.org.pl>
