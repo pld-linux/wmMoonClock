@@ -2,7 +2,7 @@ Summary:	Moon phases info for Window Maker/AfterStep
 Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
 Name:		wmMoonClock
 Version:	1.27
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
@@ -32,12 +32,12 @@ WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-        $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+	$RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,4 +46,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
-#%%{_applnkdir}/DockApplets/wmMoonClock.desktop
+%{_desktopdir}/docklets/wmMoonClock.desktop
