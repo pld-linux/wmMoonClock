@@ -13,7 +13,6 @@ URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 wmMoonClock displays the current phase of the moon. Window Maker and
 AfterStep dockable but not necessary.
@@ -27,7 +26,8 @@ WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %build
 %{__make} -C Src \
-	CFLAGS="%{rpmcflags} -I%{_includedir}"
+	CFLAGS="%{rpmcflags}" \
+	LIBDIR="-L/usr/X11R6/%{_lib}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
