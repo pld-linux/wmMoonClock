@@ -29,7 +29,7 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 %setup -q 
 
 %build
-make -C Src \
+%{__make} -C Src \
 	CFLAGS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
 
 %install
