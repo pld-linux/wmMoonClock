@@ -2,7 +2,7 @@ Name:		wmMoonClock
 Summary:	Moon phases info for Window Maker/AfterStep
 Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
 Version:	1.1
-Release:	2
+Release:	3
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:	GPL
@@ -10,6 +10,7 @@ Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmMoonClock.wmconfig
 Patch0:		wmMoonClock-man.patch
 Icon: 		wmMoonClock.gif
+BuildPrereq:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -26,7 +27,8 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %build
 make -C wmMoonClock clean
-make -C wmMoonClock COPTS="$RPM_OPT_FLAGS -Wall"
+make -C wmMoonClock \
+	COPTS="$RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -49,6 +51,12 @@ gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmMoonClock.1
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [1.1-3]
+- added BuildPrereq: XFree86-devel,
+- recompiled on rpm 3,
+- cosmetics.
+
 * Fri Mar 26 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.1-2]
 - added wmMoonClock-man.patch,
