@@ -46,7 +46,7 @@ gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmMoonClock.1
 %attr(755,root,root) /usr/X11R6/bin/wmMoonClock
 /usr/X11R6/man/man1/wmMoonClock.1.gz
 
-%config(missingok) /etc/X11/wmconfig/wmMoonClock
+/etc/X11/wmconfig/wmMoonClock
 
 %clean
 rm -rf $RPM_BUILD_ROOT
