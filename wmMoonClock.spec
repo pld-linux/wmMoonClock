@@ -4,11 +4,12 @@ Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
 Version:	1.27
 Release:	1
 Group:		X11/Window Managers/Tools
+Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
-Copyright:	GPL
+License:	GPL
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
-Source1:	wmMoonClock.desktop
-Icon: 		wmMoonClock.gif
+Source1:	%{name}.desktop
+Icon:		wmMoonClock.gif
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -17,19 +18,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define 	_mandir 	%{_prefix}/man
 
 %description
-wmMoonClock displays the current phase of the moon.  
-Window Maker and AfterStep dockable but not necessary.
+wmMoonClock displays the current phase of the moon. Window Maker and
+AfterStep dockable but not necessary.
 
 %description -l pl
-wmMoonClock wy¶wietla aktualn± fazê ksiê¿yca. 
-Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
+wmMoonClock wy¶wietla aktualn± fazê ksiê¿yca. Dokowalny w
+WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %prep
 %setup -q 
 
 %build
 %{__make} -C Src \
-	CFLAGS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
+	CFLAGS="%{rpmcflags} -I%{_includedir}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -37,12 +38,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
         $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
+install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
