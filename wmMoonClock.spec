@@ -24,7 +24,7 @@ wmMoonClock wy¶wietla aktualn± fazê ksiê¿yca. Dokowalny w
 WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %prep
-%setup -q 
+%setup -q
 
 %build
 %{__make} -C Src \
