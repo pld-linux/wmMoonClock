@@ -9,11 +9,12 @@ Copyright:	GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmMoonClock.wmconfig
 Patch0:		wmMoonClock-man.patch
-Patch1:		wmMoonClock-fhs.patch
 Icon: 		wmMoonClock.gif
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
+
+%define _prefix         /usr/X11R6
 
 %description
 wmMoonClock displays the current phase of the moon.  
@@ -26,37 +27,39 @@ Dokowalny w WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 %prep
 %setup -q 
 %patch0 -p1
-%patch1 -p0
 
 %build
-make -C wmMoonClock clean
-make -C wmMoonClock \
+make -C %{name} clean
+make -C %{name} \
 	COPTS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/{bin,share/man/man1}}
-make -C wmMoonClock install DESTDIR=$RPM_BUILD_ROOT/usr/X11R6
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
+        $RPM_BUILD_ROOT/etc/X11/wmconfig
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/wmMoonClock
+install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
+install %{name}/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/share/man/man1/wmMoonClock.1
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
+
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/X11R6/bin/wmMoonClock
-/usr/X11R6/share/man/man1/wmMoonClock.1.gz
+%attr(755,root,root) %{_bindir}/%{name}
+%{_mandir}/man1/*
 
-/etc/X11/wmconfig/wmMoonClock
+/etc/X11/wmconfig/%{name}
 
 %changelog
-* Wed May 12 1999 Piotr Czerwiñski <pius@pld.org.pl>
+* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.1-4]
-- added wmMoonClock-fhs.patch,
+- added more rpm macros,
 - package is now FHS 2.0 compliant.
 
 * Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
