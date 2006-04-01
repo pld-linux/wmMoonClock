@@ -3,7 +3,7 @@ Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
 Name:		wmMoonClock
 Version:	1.27
 Release:	4
-License:	GPL
+License:	GPL v2
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
 # Source0-md5:	c85bc974e70c867d556805505d3be48c
@@ -25,6 +25,7 @@ WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %build
 %{__make} -C Src \
+	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
 	LIBDIR="-L/usr/X11R6/%{_lib}"
 
@@ -43,6 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc BUGS
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
 %{_desktopdir}/docklets/wmMoonClock.desktop
