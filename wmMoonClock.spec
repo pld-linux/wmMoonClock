@@ -1,5 +1,5 @@
 Summary:	Moon phases info for Window Maker/AfterStep
-Summary(pl):	Informacja o fazach ksiê¿yca dla WindowMakera/AfterStepa
+Summary(pl.UTF-8):   Informacja o fazach ksiÄ™Å¼yca dla WindowMakera/AfterStepa
 Name:		wmMoonClock
 Version:	1.27
 Release:	5
@@ -17,8 +17,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 wmMoonClock displays the current phase of the moon. Window Maker and
 AfterStep dockable but not necessary.
 
-%description -l pl
-wmMoonClock wy¶wietla aktualn± fazê ksiê¿yca. Dokowalny w
+%description -l pl.UTF-8
+wmMoonClock wyÅ›wietla aktualnÄ… fazÄ™ ksiÄ™Å¼yca. Dokowalny w
 WindowMakerze i AfterStepie, lecz nie jest to koniecznie.
 
 %prep
