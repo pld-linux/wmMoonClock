@@ -1,5 +1,5 @@
 Summary:	Moon phases info for Window Maker/AfterStep
-Summary(pl.UTF-8):   Informacja o fazach księżyca dla WindowMakera/AfterStepa
+Summary(pl.UTF-8):	Informacja o fazach księżyca dla WindowMakera/AfterStepa
 Name:		wmMoonClock
 Version:	1.27
 Release:	5
